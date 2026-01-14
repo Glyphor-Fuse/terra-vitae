@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>AETHERIA | Southern Italian Wellness</title>
+    <script src='https://cdn.tailwindcss.com'></script>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Inter:wght@100;300;900&display=swap' rel='stylesheet'>
+    <style>
+        :root {
+            --color-sand: #F9F7F2;
+            --color-clay: #C18C5D;
+            --color-azure: #1D3557;
+            --color-ink: #121212;
+        }
+
+        body {
+            background-color: var(--color-sand);
+            color: var(--color-ink);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.85;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-nav {
+            background: rgba(249, 247, 242, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(193, 140, 93, 0.1);
+        }
+
+        .btn-premium {
+            position: relative;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--color-clay);
+            transition: color 0.4s ease;
+            overflow: hidden;
+        }
+
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0%; height: 100%;
+            background: var(--color-clay);
+            z-index: -1;
+            transition: width 0.4s ease;
+        }
+
+        .btn-premium:hover::before {
+            width: 100%;
+        }
+
+        .btn-premium:hover {
+            color: white;
+        }
+
+        .parallax-img {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--color-clay);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease, background 0.3s ease;
+        }
+
+        .image-overlay-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-overlay-card img {
+            transition: scale 1.5s ease;
+        }
+
+        .image-overlay-card:hover img {
+            scale: 1.1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="custom-cursor" id="cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav px-8 py-6 flex justify-between items-center">
+        <div class="text-xs tracking-[0.4em] font-black uppercase text-azure">Aetheria</div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.3em] font-light">
+            <a href="#" class="hover:text-clay transition-colors">The Sanctuary</a>
+            <a href="#" class="hover:text-clay transition-colors">Experiences</a>
+            <a href="#" class="hover:text-clay transition-colors">Our Ethos</a>
+        </div>
+        <a href="#" class="text-[10px] uppercase tracking-[0.3em] font-bold border-b border-clay">Inquire</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-40 px-8 flex flex-col items-center">
+        <div class="w-full flex justify-between items-end mb-12 reveal">
+            <span class="text-[10px] uppercase tracking-[0.5em] text-clay mb-2">Established in Puglia, Italy</span>
+            <span class="text-[10px] uppercase tracking-[0.5em] text-clay mb-2">01 / 04</span>
+        </div>
+        
+        <h1 class="hero-title text-center reveal">
+            <span class="block">Silent</span>
+            <span class="block italic font-light ml-24 md:ml-48">Luxury</span>
+        </h1>
+
+        <div class="w-full max-w-6xl mt-20 relative reveal">
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=2000" 
+                 alt="Amalfi Coast Landscape" 
+                 class="w-full h-[600px] object-cover grayscale-[20%] brightness-90">
+            <div class="absolute -bottom-10 -left-10 bg-sand p-12 max-w-md hidden md:block">
+                <p class="text-lg font-light leading-relaxed">
+                    An intimate retreat carved into the limestone cliffs of the Southern Adriatic. Where the sun meets the soul.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <section class="py-40 px-8 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-24 items-center">
+            <div class="reveal">
+                <h2 class="text-6xl md:text-8xl leading-none mb-8">
+                    Find your <br><span class="italic font-light">inner still.</span>
+                </h2>
+                <p class="text-xl font-light leading-relaxed text-gray-600 mb-12">
+                    Aetheria is not just a destination; it is a sensory reconnection. We specialize in Ayurvedic-inspired Mediterranean rituals, hyper-local gastronomy, and deep silence.
+                </p>
+                <button class="btn-premium text-[10px] uppercase tracking-[0.3em]">Explore the Rituals</button>
+            </div>
+            <div class="reveal flex flex-col gap-8">
+                <div class="image-overlay-card h-80">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=1200" 
+                         class="w-full h-full object-cover" alt="Wellness Treatment">
+                </div>
+                <div class="image-overlay-card h-[500px] ml-12">
+                    <img src="https://images.unsplash.com/photo-1518115391078-f6bd10f6575a?auto=format&fit=crop&q=80&w=1200" 
+                         class="w-full h-full object-cover" alt="Italian Villa Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Screen Immersive -->
+    <section class="relative h-screen reveal overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1493246507139-91e8bef99c02?auto=format&fit=crop&q=80&w=2000" 
+             class="absolute inset-0 w-full h-full object-cover parallax-img" id="parallaxHero">
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center text-white">
+            <div class="text-center">
+                <h3 class="text-2xl uppercase tracking-[1em] mb-4">The Infinity Pool</h3>
+                <div class="w-1 bg-white h-24 mx-auto"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="py-60 px-8 text-center bg-azure text-sand">
+        <div class="max-w-4xl mx-auto reveal">
+            <span class="text-[10px] uppercase tracking-[0.5em] mb-12 block opacity-50">The Experience</span>
+            <h2 class="text-5xl md:text-7xl italic font-light leading-tight">
+                "The Mediterranean is not just a sea, it is a philosophy of light and time."
+            </h2>
+        </div>
+    </section>
+
+    <!-- Contact/Footer -->
+    <footer class="py-32 px-8">
+        <div class="grid md:grid-cols-3 gap-20 items-start reveal">
+            <div>
+                <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Location</h4>
+                <p class="font-light text-gray-600">Litoranea Salentina, <br>73014 Gallipoli LE, <br>Italy</p>
+            </div>
+            <div>
+                <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Inquiries</h4>
+                <p class="font-light text-gray-600">concierge@aetheria.it<br>+39 0833 1234567</p>
+            </div>
+            <div class="flex flex-col items-end">
+                <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Newsletter</h4>
+                <div class="flex border-b border-clay w-full">
+                    <input type="text" placeholder="Email Address" class="bg-transparent py-4 outline-none w-full font-light">
+                    <button class="uppercase text-[10px] tracking-widest px-4">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-40 pt-12 border-t border-gray-200 flex justify-between items-center">
+            <span class="text-[10px] uppercase tracking-widest text-gray-400">© 2024 Aetheria Wellness</span>
+            <div class="flex gap-8 text-[10px] uppercase tracking-widest text-gray-400">
+                <a href="#">Instagram</a>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor Movement
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+        });
+
+        // Reveal Animations on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Subtle Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.getElementById('parallaxHero');
+            if(parallax) {
+                const limit = parallax.offsetTop + parallax.offsetHeight;
+                if(scrolled > parallax.offsetTop - window.innerHeight && scrolled < limit) {
+                    parallax.style.transform = `translateY(${(scrolled - parallax.offsetTop) * 0.15}px) scale(1.1)`;
+                }
+            }
+        });
+    </script>
+
+<script>
+  let inspectorMode = false;
+  let hoveredElement = null;
+  let selectedElement = null;
+  
+  window.addEventListener('message', (event) => {
+    if (event.data?.type === 'SET_INSPECTOR_MODE') {
+      inspectorMode = event.data.enabled;
+      document.body.style.cursor = inspectorMode ? 'crosshair' : 'default';
+    }
+    
+    if (event.data?.type === 'LOCAL_UPDATE' && selectedElement) {
+      const update = event.data.update;
+      
+      if (update.text !== undefined) {
+        selectedElement.innerText = update.text;
+      }
+      
+      if (update.styles) {
+        Object.entries(update.styles).forEach(([prop, value]) => {
+          selectedElement.style[prop] = value;
+        });
+      }
+    }
+  });
+  
+  document.addEventListener('mouseover', (e) => {
+    if (!inspectorMode) return;
+    if (hoveredElement && hoveredElement !== selectedElement) {
+      hoveredElement.style.outline = '';
+    }
+    hoveredElement = e.target;
+    if (hoveredElement !== selectedElement) {
+      hoveredElement.style.outline = '2px solid #06b6d4';
+    }
+  });
+  
+  document.addEventListener('mouseout', (e) => {
+    if (!inspectorMode || !hoveredElement) return;
+    if (hoveredElement !== selectedElement) {
+      hoveredElement.style.outline = '';
+    }
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (!inspectorMode) return;
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (selectedElement) {
+      selectedElement.style.outline = '';
+    }
+    
+    const el = e.target;
+    selectedElement = el;
+    el.style.outline = '3px solid #06b6d4';
+    
+    const rect = el.getBoundingClientRect();
+    const styles = window.getComputedStyle(el);
+    
+    window.parent.postMessage({
+      type: 'ELEMENT_SELECTED',
+      element: {
+        tagName: el.tagName.toLowerCase(),
+        text: el.innerText?.substring(0, 500) || '',
+        className: el.className || '',
+        styles: {
+          color: styles.color,
+          backgroundColor: styles.backgroundColor,
+          fontSize: styles.fontSize,
+          fontWeight: styles.fontWeight,
+          padding: styles.padding,
+          margin: styles.margin,
+        },
+        rect: {
+          top: rect.top,
+          left: rect.left,
+          width: rect.width,
+          height: rect.height,
+        },
+        selector: el.id ? '#' + el.id : (el.className ? '.' + el.className.split(' ')[0] : el.tagName.toLowerCase())
+      }
+    }, '*');
+  }, true);
+</script>
+</body>
+</html>
